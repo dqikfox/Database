@@ -1,0 +1,172 @@
+:root {
+  --bg: #0c0b18;
+  --panel: #17152b;
+  --line: #53f3d0;
+  --line-soft: #53f3d06f;
+  --text: #f4f0ff;
+  --accent: #ff3ea5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 20% 0%, #2f2458 0%, transparent 35%),
+    radial-gradient(circle at 80% 20%, #211854 0%, transparent 45%),
+    var(--bg);
+  color: var(--text);
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+}
+
+.app-shell {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 1.2rem;
+}
+
+.top-bar h1 {
+  margin: 0;
+  font-size: 2rem;
+  text-shadow: 0 0 10px var(--line);
+}
+
+.subtitle {
+  margin: 0.3rem 0 1rem;
+  color: #c8c3eb;
+}
+
+.panel {
+  background: linear-gradient(155deg, #1c1835 20%, #15122b 100%);
+  border: 1px solid var(--line-soft);
+  border-radius: 14px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 0 0 1px #000 inset, 0 0 30px #00000066;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.45rem;
+}
+
+label {
+  font-size: 0.9rem;
+  color: #c2ffef;
+}
+
+input,
+select {
+  border: 1px solid #4d4791;
+  border-radius: 8px;
+  background: #0d0b1f;
+  color: var(--text);
+  padding: 0.55rem 0.7rem;
+}
+
+input:focus,
+select:focus {
+  outline: 2px solid var(--line);
+}
+
+.btn {
+  border: 0;
+  border-radius: 10px;
+  background: linear-gradient(90deg, var(--line), var(--accent));
+  color: #050415;
+  font-weight: 700;
+  padding: 0.65rem 0.8rem;
+  cursor: pointer;
+}
+
+.btn.small {
+  margin-top: 0.4rem;
+  padding: 0.35rem 0.6rem;
+  width: fit-content;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.8rem;
+}
+
+.stat-card {
+  background: #0f0d23;
+  border: 1px solid #3a3570;
+  border-radius: 10px;
+  padding: 0.7rem;
+}
+
+.stat-card h3 {
+  margin: 0;
+  color: #a7fff0;
+  font-size: 0.95rem;
+}
+
+.stat-card p {
+  margin: 0.5rem 0 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.table-controls {
+  margin: 0.7rem 0;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 680px;
+}
+
+th,
+td {
+  border-bottom: 1px solid #302d5c;
+  text-align: left;
+  padding: 0.6rem;
+  font-size: 0.92rem;
+}
+
+.action-btn {
+  border: 1px solid #635e9f;
+  background: #151233;
+  color: #ffd4f0;
+  border-radius: 8px;
+  padding: 0.3rem 0.5rem;
+  cursor: pointer;
+}
+
+.message {
+  min-height: 1.2rem;
+  color: #ffe38b;
+}
+
+.session-info {
+  color: #adffdb;
+  font-size: 0.9rem;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (min-width: 760px) {
+  .form-grid {
+    grid-template-columns: 170px 1fr;
+    align-items: center;
+  }
+
+  .form-grid .btn {
+    grid-column: 2;
+    justify-self: start;
+  }
+}

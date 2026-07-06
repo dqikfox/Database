@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neon Ledger</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <header class="top-bar">
+      <h1>Neon Ledger</h1>
+      <p class="subtitle">Retro Company Database &amp; Accounting</p>
+      <div id="sessionInfo" class="session-info hidden"></div>
+      <button id="logoutBtn" class="btn small hidden">Logout</button>
+    </header>
+
+    <section id="loginView" class="panel">
+      <h2>Login Portal</h2>
+      <p>Choose your access level.</p>
+      <form id="loginForm" class="form-grid">
+        <label for="role">Role</label>
+        <select id="role" name="role" required>
+          <option value="user">User</option>
+          <option value="admin">Admin</option>
+        </select>
+
+        <label for="username">Username</label>
+        <input id="username" name="username" required autocomplete="username" />
+
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" required autocomplete="current-password" />
+
+        <button class="btn" type="submit">Enter Dashboard</button>
+      </form>
+      <p id="loginMessage" class="message"></p>
+    </section>
+
+    <section id="dashboardView" class="hidden">
+      <div class="panel">
+        <h2 id="companyTitle">Company Overview</h2>
+        <div class="stats-grid">
+          <article class="stat-card">
+            <h3>Revenue</h3>
+            <p id="revenueValue">$0.00</p>
+          </article>
+          <article class="stat-card">
+            <h3>Expenses</h3>
+            <p id="expenseValue">$0.00</p>
+          </article>
+          <article class="stat-card">
+            <h3>Net</h3>
+            <p id="netValue">$0.00</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h2>Financial Records</h2>
+        <form id="recordForm" class="form-grid">
+          <label for="entryDate">Date</label>
+          <input id="entryDate" type="date" required />
+
+          <label for="entryType">Type</label>
+          <select id="entryType" required>
+            <option value="revenue">Revenue</option>
+            <option value="expense">Expense</option>
+          </select>
+
+          <label for="entryCategory">Category</label>
+          <input id="entryCategory" required />
+
+          <label for="entryAmount">Amount</label>
+          <input id="entryAmount" type="number" step="0.01" min="0" required />
+
+          <label for="entryNote">Note</label>
+          <input id="entryNote" />
+
+          <button class="btn" type="submit">Add Record</button>
+        </form>
+
+        <div class="table-controls">
+          <input id="searchInput" placeholder="Filter by category or note..." />
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Type</th>
+                <th>Category</th>
+                <th>Amount</th>
+                <th>Note</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="recordBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id="adminView" class="panel hidden">
+        <h2>Admin Settings</h2>
+        <form id="settingsForm" class="form-grid">
+          <label for="companyName">Company Name</label>
+          <input id="companyName" required />
+
+          <label for="fiscalYear">Fiscal Year</label>
+          <input id="fiscalYear" type="number" min="2000" max="2100" required />
+
+          <label for="currency">Currency</label>
+          <input id="currency" maxlength="8" required />
+
+          <label for="taxRate">Tax Rate (%)</label>
+          <input id="taxRate" type="number" step="0.01" min="0" max="100" required />
+
+          <button class="btn" type="submit">Save Settings</button>
+        </form>
+        <p id="settingsMessage" class="message"></p>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
